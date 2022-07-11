@@ -2,7 +2,6 @@ package Ong.ongforblacklives.controller;
 
 import Ong.ongforblacklives.model.UsuarioModel;
 import Ong.ongforblacklives.repository.UsuarioRepository;
-import model.Usuarios;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.web.bind.annotation.*;
@@ -22,7 +21,25 @@ public class UsuarioController {
 
         return repository.findAll();
 
+
     }
+
+    @GetMapping("/usuarios/{id}")
+    public UsuarioModel getTutorialById(@PathVariable() String id) {
+
+        UsuarioModel getUsuario = (UsuarioModel) repository.findById(id).get();
+
+        return getUsuario;
+
+    }
+
+    @PostMapping("/usuarios")
+    public String saveUsuario(@RequestBody UsuarioModel usuarios) {
+        repository.save(usuarios);
+
+        return "Added Successfully";
+    }
+
 
 }
 

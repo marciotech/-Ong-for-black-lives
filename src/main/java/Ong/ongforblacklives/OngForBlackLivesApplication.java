@@ -1,17 +1,16 @@
 package Ong.ongforblacklives;
 
 import Ong.ongforblacklives.model.UsuarioModel;
-import Ong.ongforblacklives.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class OngForBlackLivesApplication implements CommandLineRunner {
+public class OngForBlackLivesApplication<UsuarioRepository> implements CommandLineRunner {
 
-	@Autowired
-	UsuarioRepository usuarioRepository;
+//	@Autowired
+//	UsuarioRepository usuarioRepository;
 
 
 	public static void main(String[] args) {
@@ -57,9 +56,12 @@ public class OngForBlackLivesApplication implements CommandLineRunner {
 		usuarioModel3.setEmail("culturaunidadomorro@gmail.com");
 		usuarioModel3.setArea_de_atuacao("Lazer");
 
-		usuarioRepository.save(usuarioModel);
-		usuarioRepository.save(usuarioModel1);
-		usuarioRepository.save(usuarioModel2);
-		usuarioRepository.save(usuarioModel3);
+
+//		//*
+//		usuarioRepository.insert(usuarioModel);
+//		usuarioRepository.save(usuarioModel1);
+//		usuarioRepository.save(usuarioModel2);
+//		usuarioRepository.save(usuarioModel3);
+//		//*
 	}
 }
