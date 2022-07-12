@@ -41,5 +41,14 @@ public class UsuarioController {
     }
 
 
-}
+    @DeleteMapping("/usuarios/{id}")
+    public UsuarioModel deleteUsuarioById(@PathVariable() String id) {
 
+        UsuarioModel usuario = (UsuarioModel) repository.findById(id).get();
+       repository.delete(usuario);
+
+
+        return usuario;
+
+    }
+}
