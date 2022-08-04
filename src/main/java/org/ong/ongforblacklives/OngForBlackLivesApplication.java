@@ -1,17 +1,12 @@
-package Ong.ongforblacklives;
+package org.ong.ongforblacklives;
 
-import Ong.ongforblacklives.model.UsuarioModel;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.ong.ongforblacklives.model.UsuarioModel;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class OngForBlackLivesApplication<UsuarioRepository> implements CommandLineRunner {
-
-//	@Autowired
-//	UsuarioRepository usuarioRepository;
-
 
 	public static void main(String[] args) {
 		SpringApplication.run(OngForBlackLivesApplication.class, args);
@@ -56,12 +51,5 @@ public class OngForBlackLivesApplication<UsuarioRepository> implements CommandLi
 		usuarioModel3.setEmail("culturaunidadomorro@gmail.com");
 		usuarioModel3.setArea_de_atuacao("Lazer");
 
-
-//		//*
-//		usuarioRepository.insert(usuarioModel);
-//		usuarioRepository.save(usuarioModel1);
-//		usuarioRepository.save(usuarioModel2);
-//		usuarioRepository.save(usuarioModel3);
-//		//*
 	}
 }
