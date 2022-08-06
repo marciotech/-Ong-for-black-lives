@@ -4,16 +4,11 @@ import org.ong.ongforblacklives.model.UsuarioModel;
 import org.ong.ongforblacklives.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.validation.FieldError;
-import org.springframework.validation.ObjectError;
-import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
-
 import javax.validation.Valid;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.function.Consumer;
+
+
 
 @RestController
 @RequestMapping("/api")
@@ -37,7 +32,9 @@ public class UsuarioController {
     }
 
     @PostMapping("/usuarios")
+    @ResponseStatus(HttpStatus.CREATED)
     public UsuarioModel save(@Valid @RequestBody UsuarioModel usuarios) {
+        System.out.println("Cheguei aqui");
         return repository.save(usuarios);
     }
 
@@ -48,25 +45,7 @@ public class UsuarioController {
         return usuario;
     }
 
-    public Object Errors;
-
-    @GetMapping(path = "/api/status")
-    public String check() {
-        return "usuario";
-    }
-
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
-    @ExceptionHandler(MethodArgumentNotValidException.class)
-    public Map<String, String> handValidationException(MethodArgumentNotValidException ex) {
-        Map<String, String> errors = new HashMap<>();
-
-        ex.getBindingResult().getAllErrors().forEach((Consumer<? super ObjectError>) Errors);
-        {
-            String fieldName = ((FieldError) errors).getField();
-            String errorMessage = ((FieldError) errors).getDefaultMessage();
-            errors.put(fieldName, errorMessage);
-        };
-
-        return errors;
-    }
 }
+
+
+

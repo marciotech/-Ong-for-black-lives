@@ -2,10 +2,8 @@ package org.ong.ongforblacklives.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.validator.constraints.br.CNPJ;
-import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.Document;
-
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
@@ -13,7 +11,6 @@ import javax.validation.constraints.Pattern;
 @Document(collection = "usuario")
 public class UsuarioModel {
 
-    //@Id
     @JsonIgnore
     public String codigo;
 
