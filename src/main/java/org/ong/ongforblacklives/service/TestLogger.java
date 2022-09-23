@@ -1,7 +1,6 @@
 package org.ong.ongforblacklives.service;
 
 
-import org.ong.ongforblacklives.OngForBlackLivesApplication;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
