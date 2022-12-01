@@ -1,6 +1,5 @@
 package org.ong.ongforblacklives.security;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
@@ -25,8 +24,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         auth.inMemoryAuthentication()
-                .withUser("Marcio").password("santos23").roles("USER");
+                .withUser("Marcio").password("{noop}santos123").roles("USER");
                 //.withUser("admin").password("santos23").roles("USER", "ADMIN");
+//        auth.inMemoryAuthentication()
+//                .withUser("admin").roles("ADMIN").password("{noop}password");
+
 
     }
 }
